@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringIOCProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringIOCProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringIOCProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringIOCProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="프레임워크 LIB" />
+          <element id="library" level="project" name="h2-1.4.200" />
+          <element id="library" level="project" name="lombok" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
