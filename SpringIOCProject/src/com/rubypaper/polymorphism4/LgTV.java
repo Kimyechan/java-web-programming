@@ -1,28 +1,33 @@
 package com.rubypaper.polymorphism4;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class LgTV implements TV {
+    private Speaker speaker;
 
     public LgTV() {
-        System.out.println("===> LgTV 생성");
+        System.out.println("===> LgTV(1) 생성");
     }
 
-    @Override
+    @Autowired
+    public LgTV(Speaker speaker) {
+        System.out.println("===> LgTV(2) 생성");
+        this.speaker = speaker;
+    }
+
     public void powerOn() {
         System.out.println("LgTV---전원 켠다");
     }
 
-    @Override
     public void powerOff() {
         System.out.println("LgTV---전원 끈다");
     }
 
-    @Override
     public void volumeUp() {
-        System.out.println("LgTV---소리 올린다");
+        speaker.volumeUp();
     }
 
-    @Override
     public void volumeDown() {
-        System.out.println("LgTV---소리 내린다");
+        speaker.volumeDown();
     }
 }

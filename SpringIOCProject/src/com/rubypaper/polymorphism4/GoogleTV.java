@@ -1,26 +1,22 @@
 package com.rubypaper.polymorphism4;
 
-import java.sql.SQLOutput;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class GoogleTV implements TV {
-    private int price;
+    private Speaker speaker;
 
     public GoogleTV() {
-        System.out.println("===>GoogleTV 생성");
+        System.out.println("===> GoogleTV(1) 생성");
     }
 
-    public void 맴버변수초기화() {
-        System.out.println("----> 맴버변수초기화() 호출");
-        this.price = 1200000;
-    }
-
-    public void 자원해제() {
-        System.out.println("---> 자원해제() 호출");
-        this.price = 0;
+    @Autowired
+    public GoogleTV(Speaker speaker) {
+        System.out.println("===> GoogleTV(2) 생성");
+        this.speaker = speaker;
     }
 
     public void powerOn() {
-        System.out.println("GoogleTV---전원 켠다" + price);
+        System.out.println("GoogleTV---전원 켠다");
     }
 
     public void powerOff() {
@@ -28,10 +24,10 @@ public class GoogleTV implements TV {
     }
 
     public void volumeUp() {
-        System.out.println("GoogleTV---소리 올린다");
+        speaker.volumeUp();
     }
 
     public void volumeDown() {
-        System.out.println("GoogleTV---소리 내린다");
+        speaker.volumeDown();
     }
 }
