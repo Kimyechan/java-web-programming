@@ -4,10 +4,22 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!-- 스프링 IoC 컨테이너가 생성할 객체를 bean으로 등록한다-->
-	<bean class="com.rubypaper.polymorphism4.GoogleTV"></bean>
-	<bean class="com.rubypaper.polymorphism4.SamsungTV"></bean>
-	<bean class="com.rubypaper.polymorphism4.LgTV"></bean>
+<!--	<bean id="tv"-->
+<!--		  class="com.rubypaper.polymorphism4.GoogleTV"-->
+<!--		  init-method="맴버변수초기화"-->
+<!--		  destroy-method="자원해제"-->
+<!--	></bean>-->
+<!--	<bean id="stv" class="com.rubypaper.polymorphism4.SamsungTV"></bean>-->
+<!--	<bean id="ltv" class="com.rubypaper.polymorphism4.LgTV"></bean>-->
 
+	<!--	이 xml도 같이 로딩해라-->
+<!--	<import resource="other.xml"/> -->
+
+	<!--	Pre loading이 아닌 Lazy loading-->
+<!--	<bean id="tv1" class="com.rubypaper.polymorphism4.LgTV" lazy-init="true"/>-->
+
+	<!-- scope default - singleton, prototype은 호출될 때마다 객체 생성	-->
+	<!--	<bean id="tv1" class="com.rubypaper.polymorphism4.LgTV" scope="prototype""/>-->
 </beans>
 
 
