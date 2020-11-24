@@ -1,7 +1,5 @@
 package com.rubypaper.polymorphism4;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 // 다형성 = 상속 + Overriding + 형변환
@@ -11,23 +9,21 @@ public class TVUser {
         GenericXmlApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
 //        ApplicationContext container = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        for (String beanDefinitionName : container.getBeanDefinitionNames()) {
-            System.out.println(beanDefinitionName);
-        }
         // 2. 스프링 IoC 컨테이너로부터 객체를 검색(Lookup)한다
-//        TV tv = (TV) container.getBean(args[0]);
-//        TV tv = (TV) container.getBean(TV.class);
+        /*TV tv = (TV) container.getBean(args[0]);
+        TV tv = (TV) container.getBean(TV.class);*/
 
-//        TV tv1 = (TV) container.getBean("tv", TV.class);
-//        TV tv2 = (TV) container.getBean("tv", TV.class);
-//        TV tv3 = (TV) container.getBean("tv", TV.class);
+       /* TV tv1 = (TV) container.getBean("tv", TV.class);
+        TV tv2 = (TV) container.getBean("tv", TV.class);
+        TV tv3 = (TV) container.getBean("tv", TV.class);*/
 
         // Spring Container는 Bean들을 Singleton으로 생성함 -> 여러번 호출하더라도 다 동일한 객체를 불러온다
-//        System.out.println(tv1.toString());
-//        System.out.println(tv2.toString());
-//        System.out.println(tv3.toString());
+        /*System.out.println(tv1.toString());
+        System.out.println(tv2.toString());
+        System.out.println(tv3.toString());*/
 
-        TV tv = (TV) container.getBean("tv");
+//        TV tv = (TV) container.getBean("samsungTV");
+        TV tv = container.getBean(TV.class);
         tv.powerOn();
         tv.volumeUp();
         tv.volumeDown();

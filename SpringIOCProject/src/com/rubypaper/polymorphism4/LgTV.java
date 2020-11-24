@@ -1,7 +1,5 @@
 package com.rubypaper.polymorphism4;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class LgTV implements TV {
     private Speaker speaker;
 
@@ -9,7 +7,6 @@ public class LgTV implements TV {
         System.out.println("===> LgTV(1) 생성");
     }
 
-    @Autowired
     public LgTV(Speaker speaker) {
         System.out.println("===> LgTV(2) 생성");
         this.speaker = speaker;

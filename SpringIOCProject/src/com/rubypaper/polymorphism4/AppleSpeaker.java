@@ -1,5 +1,8 @@
 package com.rubypaper.polymorphism4;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AppleSpeaker implements Speaker{
     public AppleSpeaker() {
         System.out.println("AppleSpeaker 생성");

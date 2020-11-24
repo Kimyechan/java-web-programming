@@ -1,5 +1,10 @@
 package com.rubypaper.polymorphism4;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class SonySpeaker implements Speaker{
     public SonySpeaker() {
         System.out.println("===> SonySpeaker 생성");
