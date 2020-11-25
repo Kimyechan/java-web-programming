@@ -30,5 +30,6 @@ public class CharacterEncodingFilter implements Filter {
         chain.doFilter(request, response);
     }
 
-    public void destroy() {}
+    public void destroy() {
+    }
 }

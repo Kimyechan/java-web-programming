@@ -16,13 +16,13 @@ public class BoardDAO {
     private ResultSet rs;
 
     // BOARD 테이블 관련 SQL 명령어
-    private static final String BOARD_INSERT     = "INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT) " +
+    private static final String BOARD_INSERT = "INSERT INTO BOARD(SEQ, TITLE, WRITER, CONTENT) " +
             "VALUES((SELECT NVL(MAX(SEQ), 0) + 1 FROM BOARD), ?, ?, ?)";
-    private static final String BOARD_UPDATE     = "UPDATE BOARD SET TITLE=?, CONTENT=? WHERE SEQ=?";
+    private static final String BOARD_UPDATE = "UPDATE BOARD SET TITLE=?, CONTENT=? WHERE SEQ=?";
     private static final String BOARD_UPDATE_CNT = "UPDATE BOARD SET CNT=CNT + 1 WHERE SEQ=?";
-    private static final String BOARD_DELETE     = "DELETE BOARD WHERE SEQ=?";
-    private static final String BOARD_GET        = "SELECT * FROM BOARD WHERE SEQ=?";
-    private static final String BOARD_LIST_TITLE   = "SELECT * FROM BOARD WHERE TITLE LIKE '%'||?||'%' ORDER BY SEQ DESC";
+    private static final String BOARD_DELETE = "DELETE BOARD WHERE SEQ=?";
+    private static final String BOARD_GET = "SELECT * FROM BOARD WHERE SEQ=?";
+    private static final String BOARD_LIST_TITLE = "SELECT * FROM BOARD WHERE TITLE LIKE '%'||?||'%' ORDER BY SEQ DESC";
     private static final String BOARD_LIST_CONTENT = "SELECT * FROM BOARD WHERE CONTENT LIKE '%'||?||'%' ORDER BY SEQ DESC";
 
     // BOARD 테이블 관련 CRUD 기능의 메소드
@@ -80,7 +80,7 @@ public class BoardDAO {
             stmt = conn.prepareStatement(BOARD_GET);
             stmt.setInt(1, vo.getSeq());
             rs = stmt.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 // 검색 결과 한 건을 BoardVO 객체에 매핑한다.
                 board = new BoardVO();
                 board.setSeq(rs.getInt("SEQ"));
@@ -109,14 +109,14 @@ public class BoardDAO {
         List<BoardVO> boardList = new ArrayList<BoardVO>();
         try {
             conn = JDBCUtil.getConnection();
-            if(vo.getSearchCondition().equals("TITLE")) {
+            if (vo.getSearchCondition().equals("TITLE")) {
                 stmt = conn.prepareStatement(BOARD_LIST_TITLE);
-            } else if(vo.getSearchCondition().equals("CONTENT")) {
+            } else if (vo.getSearchCondition().equals("CONTENT")) {
                 stmt = conn.prepareStatement(BOARD_LIST_CONTENT);
             }
             stmt.setString(1, vo.getSearchKeyword());
             rs = stmt.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 // 검색 결과 한 ROW당 하나의 BoardVO 객체에 매핑한다.
                 BoardVO board = new BoardVO();
                 board.setSeq(rs.getInt("SEQ"));

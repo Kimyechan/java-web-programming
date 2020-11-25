@@ -29,8 +29,8 @@ JSP 파일에서 if, for, switch 등과 같은 자바 코드를 대체하는 JSP 표준 태그
                     <option value='TITLE'>제목
                     <option value='CONTENT'>내용
                 </select>
-                    <input name='searchKeyword' type='text' />
-                    <input type='submit' value='검색' /></td>
+                    <input name='searchKeyword' type='text'/>
+                    <input type='submit' value='검색'/></td>
             </tr>
         </table>
     </form>

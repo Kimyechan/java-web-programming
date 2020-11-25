@@ -15,7 +15,7 @@ public class UserDAO {
 
     // USERS 테이블 관련 SQL 명령어
     private static final String USER_INSERT = "INSERT INTO USERS VALUES(?, ?, ?, ?)";
-    private static final String USER_GET    = "SELECT * FROM USERS WHERE ID=? AND PASSWORD=?";
+    private static final String USER_GET = "SELECT * FROM USERS WHERE ID=? AND PASSWORD=?";
 
     // USERS 테이블 관련 CRUD 기능의 메소드
     // 회원 등록
@@ -44,7 +44,7 @@ public class UserDAO {
             stmt.setString(1, vo.getId());
             stmt.setString(2, vo.getPassword());
             rs = stmt.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 // 검색 결과 한 건을 UserVO 객체에 매핑한다.
                 user = new UserVO();
                 user.setId(rs.getString("ID"));

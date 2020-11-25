@@ -27,7 +27,7 @@ public class DispatcherServlet extends HttpServlet {
         System.out.println(path);
 
         // 2. ����� path�� ���� ��û�� �б�ó���Ѵ�.
-        if(path.equals("/login.do")) {
+        if (path.equals("/login.do")) {
             System.out.println("�α��� ��� ó��");
 
             // 1. ����� �Է����� ����
@@ -43,7 +43,7 @@ public class DispatcherServlet extends HttpServlet {
             UserVO user = userDAO.getUser(vo);
 
             // 3. ȭ�� �׺���̼�
-            if(user != null) {
+            if (user != null) {
                 // �α��� ���� ��, ���ǿ� ���������� �����Ѵ�.
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
@@ -52,7 +52,7 @@ public class DispatcherServlet extends HttpServlet {
                 response.sendRedirect("login.html");
             }
 
-        } else if(path.equals("/logout.do")) {
+        } else if (path.equals("/logout.do")) {
             System.out.println("�α׾ƿ� ��� ó��");
 
             // �α׾ƿ��� ��û�� �������� �ش��ϴ� ���� ��ü�� ���� �����Ѵ�.
@@ -61,7 +61,7 @@ public class DispatcherServlet extends HttpServlet {
 
             response.sendRedirect("login.html");
 
-        } else if(path.equals("/insertBoard.do")) {
+        } else if (path.equals("/insertBoard.do")) {
             System.out.println("�Խ� �� ��� ��� ó��");
 
             // 1. ����� �Է����� ����
@@ -81,7 +81,7 @@ public class DispatcherServlet extends HttpServlet {
             // 3. ȭ�� �׺���̼�
             response.sendRedirect("getBoardList.do");
 
-        } else if(path.equals("/updateBoard.do")) {
+        } else if (path.equals("/updateBoard.do")) {
             System.out.println("�Խ� �� ���� ��� ó��");
 
             // 1. ����� �Է����� ����
@@ -101,7 +101,7 @@ public class DispatcherServlet extends HttpServlet {
             // 3. ȭ�� �׺���̼�
             response.sendRedirect("getBoardList.do");
 
-        } else if(path.equals("/deleteBoard.do")) {
+        } else if (path.equals("/deleteBoard.do")) {
             System.out.println("�Խ� �� ���� ��� ó��");
 
             // 1. ����� �Է����� ����
@@ -117,7 +117,7 @@ public class DispatcherServlet extends HttpServlet {
             // 3. ȭ�� �׺���̼�
             response.sendRedirect("getBoardList.do");
 
-        } else if(path.equals("/getBoard.do")) {
+        } else if (path.equals("/getBoard.do")) {
             System.out.println("�Խ� �� �� ��ȸ ��� ó��");
 
             // 1. ����� �Է����� ����
@@ -135,7 +135,7 @@ public class DispatcherServlet extends HttpServlet {
             session.setAttribute("board", board);
             response.sendRedirect("getBoard.jsp");
 
-        } else if(path.equals("/getBoardList.do")) {
+        } else if (path.equals("/getBoardList.do")) {
             System.out.println("�Խ� �� ��� �˻� ��� ó��");
 
             // 1. ����� �Է����� ����
@@ -143,8 +143,8 @@ public class DispatcherServlet extends HttpServlet {
             String searchKeyword = request.getParameter("searchKeyword");
 
             // Null Check
-            if(searchCondition == null) searchCondition = "TITLE";
-            if(searchKeyword == null) searchKeyword = "";
+            if (searchCondition == null) searchCondition = "TITLE";
+            if (searchKeyword == null) searchKeyword = "";
 
             // 2. DB ���� ó��
             BoardVO vo = new BoardVO();

@@ -1,8 +1,13 @@
-package com.rubypaper.board;
+package com.rubypaper.biz.board;
 
 import java.sql.Date;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.Entity;
 
 // VO(Value Object) Ŭ����
 /*
@@ -14,16 +19,12 @@ import lombok.Data;
 @EqualsAndHashCode*/
 @Data
 public class BoardVO {
-	// ���̺��� �÷� �̸�(������ Ÿ�Ա���)�� ������ ��������� private���� �����Ѵ�. 
-	private int seq;
-	private String title;
-	private String writer;
-	private String content;
-	private Date regDate;
-	private int cnt;
-	private String searchCondition;
-	private String searchKeyword;
-	
-	// private ��� ������ �����ϴ� public Getter/Setter �޼ҵ带 �ۼ��Ѵ�.
-	// ���� Ű(Alt + Shift + S)�� �̿��Ѵ�. 
+    private Integer seq;
+    private String title;
+    private String writer;
+    private String content;
+    private Date regDate;
+    private Integer cnt;
+    private String searchCondition;
+    private String searchKeyword;
 }

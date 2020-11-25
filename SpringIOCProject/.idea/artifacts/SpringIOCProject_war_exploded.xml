@@ -8,7 +8,6 @@
           <element id="module-output" name="SpringIOCProject" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="프레임워크 LIB" />
           <element id="library" level="project" name="h2-1.4.200" />
           <element id="library" level="project" name="lombok" />
         </element>

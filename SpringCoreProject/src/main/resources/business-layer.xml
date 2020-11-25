@@ -21,11 +21,12 @@
     <context:component-scan base-package="com.rubypaper.biz"></context:component-scan>
 
     <!-- 횡단관심에 해당하는 공통 클래스를 bean 등록한다 -->
-<!--    <bean id="log" class="com.rubypaper.biz.common.LogAdvice"></bean>-->
+    <bean id="log" class="com.rubypaper.biz.common.LogAdvice"></bean>
 
     <!-- AOP 설정 -->
 <!--    <aop:config>-->
-<!--        <aop:pointcut id="allPointcut" expression="execution(* com.rubypaper.biz..*Impl.*(..))"/>-->
+<!--        <aop:pointcut id="allPointcut"-->
+<!--                      expression="execution(* com.rubypaper.biz..*Impl.*(..))"/>-->
 <!--        <aop:aspect ref="log">-->
 <!--            <aop:before pointcut-ref="allPointcut" method="printLog"/>-->
 <!--        </aop:aspect>-->

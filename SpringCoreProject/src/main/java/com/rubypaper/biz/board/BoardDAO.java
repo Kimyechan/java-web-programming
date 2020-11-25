@@ -1,6 +1,7 @@
 package com.rubypaper.biz.board;
 
 import com.rubypaper.biz.common.JDBCUtil;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Component("boardDAO")
 public class BoardDAO {
     private Connection conn;
     private PreparedStatement stmt;
@@ -23,6 +24,9 @@ public class BoardDAO {
     private static final String BOARD_GET = "SELECT * FROM BOARD WHERE SEQ=?";
     private static final String BOARD_LIST_TITLE = "SELECT * FROM BOARD WHERE TITLE LIKE '%'||?||'%' ORDER BY SEQ DESC";
     private static final String BOARD_LIST_CONTENT = "SELECT * FROM BOARD WHERE CONTENT LIKE '%'||?||'%' ORDER BY SEQ DESC";
+
+    public BoardDAO() {
+    }
 
     public void insertBoard(BoardVO vo) {
         System.out.println("====> JDBC 기반 insertBoard");
