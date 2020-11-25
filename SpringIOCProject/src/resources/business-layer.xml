@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						 	http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- 스프링 IoC 컨테이너가 생성할 객체를 bean으로 등록한다-->
+<!--	<bean id="tv"-->
+<!--		  class="com.rubypaper.polymorphism4.GoogleTV"-->
+<!--		  init-method="맴버변수초기화"-->
+<!--		  destroy-method="자원해제"-->
+<!--	></bean>-->
+<!--	<bean id="stv" class="com.rubypaper.polymorphism4.SamsungTV"></bean>-->
+<!--	<bean id="ltv" class="com.rubypaper.polymorphism4.LgTV"></bean>-->
+
+	<!--	이 xml도 같이 로딩해라-->
+<!--	<import resource="other.xml"/> -->
+
+	<!--	Pre loading이 아닌 Lazy loading-->
+<!--	<bean id="tv1" class="com.rubypaper.polymorphism4.LgTV" lazy-init="true"/>-->
+
+	<!-- scope default - singleton, prototype은 호출될 때마다 객체 생성	-->
+	<!--	<bean id="tv1" class="com.rubypaper.polymorphism4.LgTV" scope="prototype""/>-->
+
+	<!--<bean id="speaker" class="com.rubypaper.polymorphism4.AppleSpeaker"></bean>
+	<bean id="tv"
+		  class="com.rubypaper.polymorphism4.SamsungTV"
+	>
+		<constructor-arg ref="speaker"/>
+		<constructor-arg value="1500000"/>
+	</bean>-->
+
+	<!--<bean id="speaker" class="com.rubypaper.polymorphism4.AppleSpeaker"></bean>
+	<bean id="tv"
+		  class="com.rubypaper.polymorphism4.SamsungTV"
+	>
+		<property name="speaker" ref="speaker"></property>
+		<property name="price" value="1500000"></property>
+	</bean>-->
+
+	<!--<bean id="speaker" class="com.rubypaper.polymorphism4.AppleSpeaker"></bean>
+	<bean id="tv" class="com.rubypaper.polymorphism4.SamsungTV"
+			p:speaker-ref="speaker"
+		  	p:price="11000">
+	</bean>-->
+
+	<!-- 컴포넌트 스캔-->
+	<context:component-scan base-package="com.rubypaper.polymorphism4"></context:component-scan>
+
+	<!--  실제로 사용할 Speaker 타입의 객체를 하나만 등록한다.	-->
+	<!-- 변경이 자주 일어나는 bean들은 xml에 설정한다 -> 컴파일을 안해도 되기때문이다 -->
+	<bean class="com.rubypaper.polymorphism4.SonySpeaker"></bean>
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
