@@ -26,6 +26,9 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void insertBoard(BoardVO vo) {
+        if(vo.getSeq() == 0) {
+            throw new IllegalArgumentException();
+        }
         boardDAO.insertBoard(vo);
     }
 

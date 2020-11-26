@@ -22,6 +22,7 @@ public class UserDAO {
     // USERS ���̺� ���� CRUD ����� �޼ҵ�
     // ȸ�� ���
     public void insertUser(UserVO vo) {
+        System.out.println("====> JDBC 기반으로 insertUser 처리");
         try {
             conn = JDBCUtil.getConnection();
             stmt = conn.prepareStatement(USER_INSERT);
@@ -39,6 +40,7 @@ public class UserDAO {
 
     // ȸ�� �� ��ȸ
     public UserVO getUser(UserVO vo) {
+        System.out.println("====> JDBC 기반으로 getUser 처리");
         UserVO user = null;
         try {
             conn = JDBCUtil.getConnection();

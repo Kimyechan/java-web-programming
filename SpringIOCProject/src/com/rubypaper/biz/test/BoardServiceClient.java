@@ -25,6 +25,11 @@ public class BoardServiceClient {
             System.out.println("---> " + board.toString());
         }
 
+        // 예외처리 AOP
+        /*BoardVO voInsert = new BoardVO();
+        voInsert.setSeq(0);
+        boardService.insertBoard(voInsert);*/
+
         container.close();
     }
 }
