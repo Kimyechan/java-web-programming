@@ -29,6 +29,5 @@ public class AfterThrowingAdvice {
         } else {
             System.out.println("문제 발생 !! 시스템을 잠시 종료합니다");
         }
-
     }
 }

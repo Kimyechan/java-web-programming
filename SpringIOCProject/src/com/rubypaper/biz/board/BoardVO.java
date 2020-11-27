@@ -1,30 +1,19 @@
 package com.rubypaper.biz.board;
 
+import lombok.Data;
+
 import java.sql.Date;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
-
-import javax.persistence.Entity;
-
-// VO(Value Object) Ŭ����
-/*
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@EqualsAndHashCode*/
+// 1. VO(Value Object) 클래스
 @Data
 public class BoardVO {
-    private Integer seq;
+    // 테이블의 컬럼 이름(데이터 타입까지)과 동일한 멤버변수를 private 으로 선언한다.
+    private int seq;
     private String title;
     private String writer;
     private String content;
     private Date regDate;
-    private Integer cnt;
+    private int cnt;
     private String searchCondition;
     private String searchKeyword;
 }

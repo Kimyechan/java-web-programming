@@ -1,34 +1,28 @@
 package com.rubypaper.biz.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-// 4. Service 구현 클래스 (비지니스 로직 처리)
-@Service
+@Service("boardService") // Component 기능도 가지고 있다.
 public class BoardServiceImpl implements BoardService {
-    BoardDAO boardDAO;
-
-//    public BoardServiceImpl() {
-//        System.out.println("=====> BoardServiceImpl 생성");
-//    }
+    private BoardDAO boardDAO;
 
     @Autowired
     public BoardServiceImpl(BoardDAO boardDAO) {
         this.boardDAO = boardDAO;
     }
 
-//    public void setBoardDAO(BoardDAO boardDAO) {
-//        this.boardDAO = boardDAO;
-//    }
+    public BoardServiceImpl() {
+        System.out.println("===> BoardServiceImpl 생성");
+    }
 
     @Override
     public void insertBoard(BoardVO vo) {
-        if(vo.getSeq() == 0) {
-            throw new IllegalArgumentException();
-        }
+//        if (vo.getSeq() == 0) {
+//            throw new IllegalArgumentException();
+//        }
         boardDAO.insertBoard(vo);
     }
 
