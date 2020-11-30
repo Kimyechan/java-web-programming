@@ -3,7 +3,8 @@ package com.rubypaper.web.controller.board;
 import com.rubypaper.biz.board.BoardDAO;
 import com.rubypaper.biz.board.BoardDAOJDBC;
 import com.rubypaper.biz.board.BoardVO;
-import com.rubypaper.web.controller.Controller;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class GetBoardListController implements Controller {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
         // 1. ����� �Է����� ����
         String searchCondition = request.getParameter("searchCondition");
         String searchKeyword = request.getParameter("searchKeyword");
@@ -34,6 +35,8 @@ public class GetBoardListController implements Controller {
         session.setAttribute("boardList", boardList);
 
         // �� ��� ȭ��(getBoardList.jsp)���� �̵��Ѵ�.
-        return "getBoardList";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("getBoardList");
+        return mav;
     }
 }

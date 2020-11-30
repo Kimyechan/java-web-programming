@@ -22,7 +22,7 @@ JSP 파일에서 if, for, switch 등과 같은 자바 코드를 대체하는 JSP 표준 태그
         <font color='red'>${user.name }</font>님 로그인 환영합니다...... <a href='logout.do'>Log-out</a>
     </h3>
     <!-- 검색 시작 -->
-    <form action='getBoardList.jsp' method='post'>
+    <form action='getBoardList.do' method='post'>
         <table border='1' cellpadding='0' cellspacing='0' width='700'>
             <tr>
                 <td align='right'><select name='searchCondition'>
@@ -55,7 +55,7 @@ JSP 파일에서 if, for, switch 등과 같은 자바 코드를 대체하는 JSP 표준 태그
         </c:forEach>
 
     </table>
-    <br> <a href='insertBoard.jsp'>새글 등록</a>
+    <br> <a href='../../insertBoard.jsp'>새글 등록</a>
 </center>
 </body>
 </html>

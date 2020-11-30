@@ -3,14 +3,15 @@ package com.rubypaper.web.controller.board;
 import com.rubypaper.biz.board.BoardDAO;
 import com.rubypaper.biz.board.BoardDAOJDBC;
 import com.rubypaper.biz.board.BoardVO;
-import com.rubypaper.web.controller.Controller;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class UpdateBoardController implements Controller {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
         // 1. ����� �Է����� ����
         String title = request.getParameter("title");
         String seq = request.getParameter("seq");
@@ -26,6 +27,8 @@ public class UpdateBoardController implements Controller {
         boardDAO.updateBoard(vo);
 
         // 3. ȭ�� �׺���̼�
-        return "getBoardList.do";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("forward:getBoardList.do");
+        return mav;
     }
 }

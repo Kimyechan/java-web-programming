@@ -51,7 +51,7 @@ JSP 파일에서 if, for, switch 등과 같은 자바 코드를 대체하는 JSP 표준 태그
         </table>
     </form>
     <hr>
-    <a href='insertBoard.jsp'>글등록</a>&nbsp;&nbsp;&nbsp;
+    <a href='../../insertBoard.jsp'>글등록</a>&nbsp;&nbsp;&nbsp;
     <c:if test="${user.role == 'ADMIN' }">
         <a href='deleteBoard.do?seq=${board.seq }'>글삭제</a>&nbsp;&nbsp;&nbsp;
     </c:if>
