@@ -13,8 +13,6 @@ public class BoardServiceClient {
         String[] configuration = {"business-layer.xml", "business-transaction.xml"};
         GenericXmlApplicationContext container =
                 new GenericXmlApplicationContext(configuration);
-        /*GenericXmlApplicationContext container =
-                new GenericXmlApplicationContext("businees-*.xml");*/
 
         BoardService boardService = container.getBean(BoardService.class);
         if(boardService != null) {
@@ -43,7 +41,7 @@ public class BoardServiceClient {
         BoardVO board = boardService.getBoard(voGetBoard);
         System.out.println(board);
         // 예외처리 AOP
-        /*BoardVO voInsert = new BoardVO();
+       /* BoardVO voInsert = new BoardVO();
         voInsert.setSeq(0);
         boardService.insertBoard(voInsert);*/
 
