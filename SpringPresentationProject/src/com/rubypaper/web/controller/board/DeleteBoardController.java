@@ -9,22 +9,22 @@ import org.springframework.web.servlet.mvc.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeleteBoardController implements Controller {
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        // 1. ����� �Է����� ����
-        String seq = request.getParameter("seq");
-
-        // 2. DB ���� ó��
-        BoardVO vo = new BoardVO();
-        vo.setSeq(Integer.parseInt(seq));
-
-        BoardDAO boardDAO = new BoardDAOJDBC();
-        boardDAO.deleteBoard(vo);
-
-        // 3. ȭ�� �׺���̼�
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("forward:getBoardList.do");
-        return mav;
-    }
-}
+//public class DeleteBoardController implements Controller {
+//    @Override
+//    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
+//        // 1. ����� �Է����� ����
+//        String seq = request.getParameter("seq");
+//
+//        // 2. DB ���� ó��
+//        BoardVO vo = new BoardVO();
+//        vo.setSeq(Integer.parseInt(seq));
+//
+//        BoardDAO boardDAO = new BoardDAOJDBC();
+//        boardDAO.deleteBoard(vo);
+//
+//        // 3. ȭ�� �׺���̼�
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("forward:getBoardList.do");
+//        return mav;
+//    }
+//}

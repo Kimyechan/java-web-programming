@@ -29,11 +29,11 @@ JSP 파일에서 if, for, switch 등과 같은 자바 코드를 대체하는 JSP 표준 태그
             </tr>
             <tr>
                 <td bgcolor='orange'>작성자</td>
-                <td align='left'>${board.writer }</td>
+                <td align='left'><input name='writer' type='text' value='${board.writer}'/></td>
             </tr>
             <tr>
                 <td bgcolor='orange'>내용</td>
-                <td align='left'><textarea name='content' cols='40' rows='10'>${board.content }</textarea></td>
+                <td align='left'><textarea name='content' cols='40' rows='10'>${board.content}</textarea></td>
             </tr>
             <tr>
                 <td bgcolor='orange'>등록일</td>
@@ -51,7 +51,7 @@ JSP 파일에서 if, for, switch 등과 같은 자바 코드를 대체하는 JSP 표준 태그
         </table>
     </form>
     <hr>
-    <a href='../../insertBoard.jsp'>글등록</a>&nbsp;&nbsp;&nbsp;
+    <a href='insertBoard.do'>글등록</a>&nbsp;&nbsp;&nbsp;
     <c:if test="${user.role == 'ADMIN' }">
         <a href='deleteBoard.do?seq=${board.seq }'>글삭제</a>&nbsp;&nbsp;&nbsp;
     </c:if>

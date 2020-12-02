@@ -21,13 +21,18 @@ public class BoardDAOJDBC implements BoardDAO {
     // BOARD 테이블 관련 SQL 명령어
     private static final String BOARD_INSERT = "insert into board(seq, title, writer, content) " +
             "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
-    private static final String BOARD_UPDATE = "update board set title = ?, content = ? where seq = ?";
+    private static final String BOARD_UPDATE = "update board set title = ?, writer= ?, content = ? where seq = ?";
     private static final String BOARD_UPDATE_CNT = "update board set CNT = CNT + 1 WHERE SEQ = ?";
     private static final String BOARD_DELETE = "delete board where seq = ?";
     private static final String BOARD_GET = "select * from board where seq = ?";
     private static final String BOARD_LIST = "select * from board order by seq desc";
     private static final String BOARD_LIST_TITLE = "select * from board where TITLE like '%'||?||'%' order by seq desc"; // ? 에는 ''가 붙어서 들어가므로 따로 2개 만들어야함.
     private static final String BOARD_LIST_CONTENT = "select * from board where CONTENT like '%'||?||'%' order by seq desc";
+
+    public BoardDAOJDBC() {
+        System.out.println("BOARDDAOJDBC Default");
+        System.out.println(this);
+    }
 
     // BOARD 테이블 관련 CRUD 기능의 메소드
     // 글 등록
@@ -56,8 +61,9 @@ public class BoardDAOJDBC implements BoardDAO {
             conn = JDBCUtil.getConnection();
             stmt = conn.prepareStatement(BOARD_UPDATE);
             stmt.setString(1, vo.getTitle());
-            stmt.setString(2, vo.getContent());
-            stmt.setInt(3, vo.getSeq());
+            stmt.setString(2, vo.getWriter());
+            stmt.setString(3, vo.getContent());
+            stmt.setInt(4, vo.getSeq());
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

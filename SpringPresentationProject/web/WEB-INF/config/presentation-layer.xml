@@ -9,7 +9,7 @@
 							http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <!-- 모든 컨트롤러 클래스들을 bean으로 등록한다 -->
-    <bean id="getBoardList" class="com.rubypaper.web.controller.board.GetBoardListController">
+    <!--<bean id="getBoardList" class="com.rubypaper.web.controller.board.GetBoardListController">
     </bean>
     <bean id="login" class="com.rubypaper.web.controller.user.LoginController">
     </bean>
@@ -22,11 +22,11 @@
     <bean id="updateBoard" class="com.rubypaper.web.controller.board.UpdateBoardController">
     </bean>
     <bean id="deleteBoard" class="com.rubypaper.web.controller.board.DeleteBoardController">
-    </bean>
+    </bean>-->
 
     <!-- 클라이언트의 요청을 어떤 컨트롤러가 처리할지 HandlerMapping으로 매핑한다 -->
     <!-- handleMapping id 고정 (spring에서 등록한 bean은 마지막 단어 두개 중 첫 단어만 소문자로 변경해서 id로 등록)-->
-    <bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <!--<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
                 <prop key="/login.do">login</prop>
@@ -38,7 +38,7 @@
                 <prop key="/deleteBoard.do">deleteBoard</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 
     <!--  View Resolver를 등록한다
             브라우저는 절대 서버가 관리하는 프로젝트의 WEB-INF폴더에 접근할 수 없다.
@@ -48,5 +48,8 @@
         <property name="prefix" value="/WEB-INF/board/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- 컴포넌트 스캔 설정 -->
+    <context:component-scan base-package="com.rubypaper"/>
 
 </beans>

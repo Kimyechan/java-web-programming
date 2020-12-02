@@ -5,11 +5,16 @@
          version="4.0">
     <display-name>SpringPresentationProject</display-name>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/common/error404.jsp</location>
+    </error-page>
     <filter>
         <filter-name>encodingFilter</filter-name>
-        <filter-class>com.rubypaper.web.common.CharacterEncodingFilter</filter-class>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>EUC-KR</param-value>
@@ -19,14 +24,14 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
-    <filter>
-        <filter-name>roleCheckFilter</filter-name>
-        <filter-class>com.rubypaper.web.common.RoleCheckFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>roleCheckFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>roleCheckFilter</filter-name>-->
+<!--        <filter-class>com.rubypaper.web.common.RoleCheckFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>roleCheckFilter</filter-name>-->
+<!--        <url-pattern>*.do</url-pattern>-->
+<!--    </filter-mapping>-->
 
     <!--<servlet>
         <servlet-name>action</servlet-name>
@@ -36,7 +41,16 @@
         <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>-->
-
+    <!-- 스프링 프레임워크에서 제공하는 ContextLoaderListener 클래스를 등록한다.(Pre-Loading -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:business-*.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
     <!-- 스프링 프레임워크가 제공하는 DispatcherServlet 클래스로 변경한다 -->
     <servlet>
         <servlet-name>action</servlet-name>
