@@ -1,11 +1,5 @@
 package com.rubypaper.biz.user;
 
-import com.rubypaper.biz.common.JDBCUtil;
-import org.springframework.stereotype.Repository;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 // DAO(Data Access Object) Ŭ����
 public class UserDAOMyBatis {

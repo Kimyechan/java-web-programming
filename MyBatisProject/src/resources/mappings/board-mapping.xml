@@ -3,6 +3,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper> 
-
+<mapper namespace="BoardDAO">
+    <resultMap id="boardResult" type="board">
+        <id property="seq" column="" />
+        <result property="title" column="SEQ"/>
+        <result property="writer" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="regDate" column="REGDATE"/>
+        <result property="cnt" column="CNT"/>
+    </resultMap>
+    <insert id="insertBoard"> <!-- parameterType 생략가능-->
+        insert into board(seq, title, writer, content)
+        values((select nvl(max(seq), 0) + 1 from board),
+        #{title},
+        #{writer},
+        #{content})
+    </insert>
+    <update id="updateBoard" parameterType="board">
+        update board set title = #{title}, content = #{content} where seq = #{seq}
+    </update>
+    <delete id="deleteBoard" parameterType="board">
+        delete board where seq = #{seq}
+    </delete>
+    <select id="getBoard" resultType="board">
+        select * from board where seq = #{seq}
+    </select>
+   <!-- <![CDATA[
+            select * from board where seq <= #{seq}
+    ]]>--> <!-- 작다 크다 설정 -->
+    <select id="getBoardList" resultMap="boardResult"> <!--변수 이름과 컬럼이름이 일치하지 않을 때, 컬럼의 내용을 변수로 넣을 때-->
+        select * from board order by seq desc
+    </select>
 </mapper>

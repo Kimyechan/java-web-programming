@@ -5,10 +5,12 @@
 <configuration>
 	<properties resource="database.properties" />
 
+	<!-- 아랫쪽에 mapper xml파일에서 사용할 Alias들을 등록한다-->
 	<typeAliases>
-		<typeAlias alias="board" type="com.multicampus.biz.board.BoardVO" />
+		<typeAlias alias="board" type="com.rubypaper.biz.board.BoardVO" />
 	</typeAliases>
 
+	<!-- MyBatis가 연동할 Database를 위한 DatatSource 등록한다. -->
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -21,6 +23,7 @@
 		</environment>
 	</environments>
 
+	<!-- MyBatis가 사용할 SQL 구문들이 등록된 mapper xml 파일들의 위치를 등록한다. -->
 	<mappers>
 		<mapper resource="mappings/board-mapping.xml" />
 	</mappers>
