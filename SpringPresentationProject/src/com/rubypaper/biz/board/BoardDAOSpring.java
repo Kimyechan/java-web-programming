@@ -17,8 +17,8 @@ public class BoardDAOSpring implements BoardDAO{
 
     // BOARD 테이블 관련 SQL 명령어
     private static final String BOARD_INSERT = "insert into board(seq, title, writer, content) " +
-//            "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
-                "values(?, ?, ?, ?)";
+            "values((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
+//                "values(?, ?, ?, ?)";
     private static final String BOARD_UPDATE = "update board set title = ?, content = ? where seq = ?";
     private static final String BOARD_UPDATE_CNT = "update board set CNT = CNT + 1 WHERE SEQ = ?";
     private static final String BOARD_DELETE = "delete board where seq = ?";
@@ -31,7 +31,7 @@ public class BoardDAOSpring implements BoardDAO{
     // 글 등록
     public void insertBoard(BoardVO vo) {
         System.out.println("===> Spring 기반으로 insertBoard() 기능 처리");
-        spring.update(BOARD_INSERT,vo.getSeq(), vo.getTitle(), vo.getWriter(), vo.getContent());
+        spring.update(BOARD_INSERT, vo.getTitle(), vo.getWriter(), vo.getContent());
     }
 
     // 글 수정

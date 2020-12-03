@@ -9,14 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 // @SessionAttributes를 이용하면 특정 이름으로 Model에 저장된 데이터를 세션에도 등록되도록 한다.
 // 따라서 getBoard 메소드에서 Model에 "board"라는 이름으로 BoardVO 객체를 Model에 저장하면
 // 세션에도 "board"라는 이름으로 BoardVO 객체가 등록되는 것이다.
-//@SessionAttributes({"board", "aaa", "bbb", "ccc"})
+@SessionAttributes({"board", "aaa", "bbb", "ccc"})
 @Controller
 public class BoardController {
     private final BoardService boardService;
@@ -24,6 +29,14 @@ public class BoardController {
     @Autowired
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
+    }
+
+    @RequestMapping("/dataTransform.do")
+    @ResponseBody // HTTP 응답 프로토콜 BODY 에 JSON형태로 담을 수 있다(http request header의 accept type을 정하면 정한 타입으로 보내준다. xml도 가능
+    public List<BoardVO> dataTransform(BoardVO vo) {
+        vo.setSearchCondition("TITLE");
+        vo.setSearchKeyword("");
+        return boardService.getBoardList(vo);
     }
 
     @RequestMapping("/getBoard.do")
@@ -59,7 +72,16 @@ public class BoardController {
     }
 
     @RequestMapping(value = "/insertBoard.do", method = RequestMethod.POST)
-    public String insertBoard(BoardVO vo) {
+    public String insertBoard(HttpServletRequest request, BoardVO vo) throws IOException {
+        // 파일 업로드 처리
+        System.out.println(request.getCharacterEncoding());
+        System.out.println(request.getRequestURI());
+        System.out.println(vo);
+        MultipartFile uploadFile = vo.getUploadFile();
+        if(!uploadFile.isEmpty()) { // 파일 업로드 정보가 하나라도 있으면...
+            uploadFile.transferTo(new File("/Users/kimyechan/Downloads/upload_files/" + uploadFile.getOriginalFilename()));
+        }
+
         boardService.insertBoard(vo);
         return "forward:getBoardList.do";
     }
