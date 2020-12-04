@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BoardServiceClient {
     public static void main(String[] args) {
-        String[] configuration = {"business-layer.xml", "business-transaction.xml"};
+        String[] configuration = {"business-common.xml", "business-transaction.xml"};
 //        GenericXmlApplicationContext container =
 //                new GenericXmlApplicationContext(configuration);
         GenericXmlApplicationContext container =

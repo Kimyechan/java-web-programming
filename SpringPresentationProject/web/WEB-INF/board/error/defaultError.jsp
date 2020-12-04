@@ -12,7 +12,7 @@
 <!-- 타이틀 시작 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
-		<td width="93%" bgcolor="orange">문제 발생!(java.lang.ArithmeticException)</td>
+		<td width="93%" bgcolor="orange">문제 발생! default error</td>
 	</tr>
 </table>
 <!-- 타이틀 끝 -->

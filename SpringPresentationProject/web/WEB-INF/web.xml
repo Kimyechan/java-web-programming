@@ -24,14 +24,14 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
-    <filter>
-        <filter-name>roleCheckFilter</filter-name>
-        <filter-class>com.rubypaper.web.common.RoleCheckFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>roleCheckFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>roleCheckFilter</filter-name>-->
+<!--        <filter-class>com.rubypaper.web.common.RoleCheckFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>roleCheckFilter</filter-name>-->
+<!--        <url-pattern>*.do</url-pattern>-->
+<!--    </filter-mapping>-->
 
     <!--<servlet>
         <servlet-name>action</servlet-name>

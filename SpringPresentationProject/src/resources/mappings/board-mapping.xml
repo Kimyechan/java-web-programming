@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO"> <!-- 아래 id 들을 BoardDAO 라는 namespace 로 등록하겠다. -->
+    <resultMap id="boardResult" type="board">
+        <id property="seq" column="SEQ"/> <!-- id 는 primary key mapping 에 사용 -->
+        <result property="title" column="TITLE"/>
+        <result property="writer" column="WRITER"/>
+        <result property="content" column="CONTENT"/>
+        <result property="regDate" column="REG_DATE"/>
+        <result property="cnt" column="CNT"/>
+    </resultMap>
+    <insert id="insertBoard" parameterType="board"> /* parameterType 생략 가능 resultType 은 생략 불가 */
+        INSERT into BOARD(SEQ, TITLE, WRITER, CONTENT)
+        VALUES((SELECT nvl(max(SEQ), 0) + 1 FROM BOARD),
+        #{title},
+        #{writer},
+        #{content})
+    </insert>
+    <insert id="insertBoardMap" parameterType="board">
+        INSERT into BOARD(SEQ, TITLE, WRITER, CONTENT)
+        VALUES((SELECT nvl(max(SEQ), 0) + 1 FROM BOARD),
+        #{title},
+        #{writer},
+        #{content})
+    </insert>
+    <update id="updateBoard">
+        update board
+        set TITLE = #{title},
+        CONTENT = #{content}
+        where seq = #{seq}
+    </update>
+    <delete id="deleteBoard">
+        delete board
+        where seq = #{seq}
+    </delete>
+    <!--  resultType : 어떤 객체에 담아서 리턴할 것인지  -->
+    <select id="getBoard" resultType="board">
+        <!--<![CDATA[
+        SELECT * FROM BOARD
+                where seq <= #{seq} /* 이 안에서는 부등호 사용 가능 */
+        ]]]>-->
+        SELECT * FROM BOARD
+        where seq = #{seq}
+        /* &lt; : 작다. 부등호
+        &gt; : 크다. 부등호 */
+    </select>
+    <select id="getBoardList" resultMap="boardResult"> /* resultType="board" 도 가능하지만 resultMap 은 변수 이름과 컬럼 이름이 일치하지 않을 때 사용 */
+        SELECT *
+        FROM BOARD
+        WHERE 1 = 1
+        <if test="searchCondition == 'TITLE'">
+            <![CDATA[AND TITLE LIKE '%'||#{searchKeyword}||'%']]>
+        </if>
+        <if test="searchCondition == 'CONTENT'">
+            <![CDATA[AND CONTENT LIKE '%'||#{searchKeyword}||'%']]>
+        </if>
+        order by seq desc
+    </select>
+    <select id="getTotalCount" resultType="board">
+        SELECT count(*)
+        FROM BOARD
+    </select>
+</mapper>

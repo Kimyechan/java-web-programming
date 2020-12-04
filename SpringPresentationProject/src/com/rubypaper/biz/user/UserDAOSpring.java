@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 // DAO(Data Access Object) Ŭ����
 @Repository
-@Primary
+//@Primary
 public class UserDAOSpring implements UserDAO {
     private final JdbcTemplate spring;
 

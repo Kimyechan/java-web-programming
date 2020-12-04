@@ -10,7 +10,7 @@ import java.util.List;
 // 2. DAO (Data Access Object) 클래스
 //@Repository // Component 기능을 가지고 있다.
 @Repository
-@Primary
+//@Primary
 public class BoardDAOSpring implements BoardDAO{
     @Autowired
     private JdbcTemplate spring;
