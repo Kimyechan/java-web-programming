@@ -1,8 +1,4 @@
-package com.example.biz.user;
-
-import com.example.biz.common.JDBCUtil;
-
-import java.sql.*;
+package com.rubypaper.biz.user;
 
 public class GetUserTest {
     public static void main(String[] args) {

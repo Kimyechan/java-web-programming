@@ -1,4 +1,4 @@
-package com.example.biz.common;
+package com.rubypaper.biz.common;
 
 import java.sql.*;
 

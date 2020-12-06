@@ -1,8 +1,7 @@
-package com.example.biz.board;
+package com.rubypaper.biz.board;
 
-import com.example.biz.common.JDBCUtil;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+
+import com.rubypaper.biz.common.JDBCUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

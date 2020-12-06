@@ -1,4 +1,4 @@
-package com.example.biz.board;
+package com.rubypaper.biz.board;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.example.biz.user;
+package com.rubypaper.biz.user;
 
 import lombok.Builder;
 import lombok.Data;

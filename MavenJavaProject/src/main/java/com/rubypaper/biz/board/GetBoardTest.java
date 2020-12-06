@@ -1,6 +1,4 @@
-package com.example.biz.board;
-
-import java.sql.*;
+package com.rubypaper.biz.board;
 
 /**
  * connection - 고속도로

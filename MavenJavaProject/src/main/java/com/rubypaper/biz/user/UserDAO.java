@@ -1,13 +1,10 @@
-package com.example.biz.user;
+package com.rubypaper.biz.user;
 
-import com.example.biz.board.BoardVO;
-import com.example.biz.common.JDBCUtil;
+import com.rubypaper.biz.common.JDBCUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 // DAO(Data Access Object) 클래스
 public class UserDAO {

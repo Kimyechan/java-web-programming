@@ -1,6 +1,5 @@
-package com.example.biz.board;
+package com.rubypaper.biz.board;
 
-import java.sql.*;
 import java.util.List;
 
 /**
