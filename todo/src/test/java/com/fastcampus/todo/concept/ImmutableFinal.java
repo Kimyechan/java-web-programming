@@ -7,7 +7,7 @@ import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
 
-public class ImutableFinal {
+public class ImmutableFinal {
 
     @Test // final -> 재할당 방지
     void test() {
